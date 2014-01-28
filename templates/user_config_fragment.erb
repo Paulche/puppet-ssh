@@ -1,0 +1,7 @@
+
+Host <%= @sshname %>
+  Hostname <%= @hostname %>
+  <%- if @user -%>
+  User <%= @user -%>
+  <%- end -%> 
+  IdentityFile <%= @identity %>
