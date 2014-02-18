@@ -14,6 +14,7 @@ define ssh::key(  $private_basedir,
   # Manage private key
   file { "${private_basedir}/${name}":
     ensure => present, 
+    mode   => '0600',
     source => "puppet:///$private_sourcedir/${name}",
   }
 

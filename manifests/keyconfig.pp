@@ -27,11 +27,11 @@ define ssh::keyconfig(  $private_basedir,
   
   if($key) 
   {
-    ensure_resource('ssh::key', $key)
     $identity = "${private_basedir}/${key}"
   }
   else
   {
+    ensure_resource('ssh::key', $name)
     $identity = "${private_basedir}/${name}"
   }
   
