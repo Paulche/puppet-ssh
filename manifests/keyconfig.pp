@@ -3,6 +3,8 @@ define ssh::keyconfig(  $private_basedir,
                         $hostname,
                         $key = undef,
                         $user = undef,
+                        $port = undef,
+                        $forward_agent = false
                       ) {
   
   $anyhost  = any2array($hostname)
@@ -35,7 +37,7 @@ define ssh::keyconfig(  $private_basedir,
     $identity = "${private_basedir}/${name}"
   }
   
-  $entries  = ssh_entries($product, $identity, $name)
+  $entries  = ssh_entries($product, $identity, $name, $forward_agent, $port)
 
   create_resources(ssh::keyconfig_entry, $entries)
 }

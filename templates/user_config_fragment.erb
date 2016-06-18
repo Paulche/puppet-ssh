@@ -1,7 +1,11 @@
 
 Host <%= @sshname %>
   Hostname <%= @hostname %>
+  <%- if @port and @port != '' -%>
+  Port <%= @port.to_s %>
+  <%- end -%>
   <%- if @user -%>
-  User <%= @user -%>
-  <%- end -%> 
+  User <%= @user %>
+  <%- end -%>
   IdentityFile <%= @identity %>
+  ForwardAgent <%= @forward_agent %>

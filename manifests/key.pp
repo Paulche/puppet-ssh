@@ -10,6 +10,13 @@ define ssh::key(  $private_basedir,
     ensure => present, 
     source => "puppet:///$public_sourcedir/${name}.pub",
   }
+
+
+  # http://apple.stackexchange.com/questions/18458/password-dialog-appears-when-ssh-private-key-permissions-are-set-to-0600
+  file { "${private_basedir}/${name}.pub":
+    ensure => link,
+    target => "${public_basedir}/${name}.pub",
+  }
   
   # Manage private key
   file { "${private_basedir}/${name}":

@@ -13,4 +13,11 @@ class ssh {
   concat { $user_config_file:
 
   }
+
+  concat::fragment { 'ssh.header':
+    target  => $user_config_file,
+    source  => "puppet:///modules/${module_name}/header",
+    order   => '01',
+  }
+
 }

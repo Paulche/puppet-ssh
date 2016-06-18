@@ -2,8 +2,10 @@
 define ssh::keyconfig_entry(
   $hostname,
   $user = undef,
+  $port = undef,
   $identity,
-  $sshname
+  $sshname,
+  $forward_agent
 ) {
 
   # Manage fragment of user-config file
